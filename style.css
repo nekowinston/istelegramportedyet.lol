@@ -22,3 +22,30 @@ h1 {
   width: 100%;
   flex-grow: 1;
 }
+
+
+.jumpscare {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('./blahaj.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: 999999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.jumpscare-title {
+  font-size: 100px;
+  color: black;
+  font-family: monospace;
+}

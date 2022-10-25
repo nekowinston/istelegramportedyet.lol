@@ -71,11 +71,25 @@
     />
     <link rel="apple-touch-icon" sizes="57x57" href="favicon-57.png" />
     <link rel="icon" sizes="32x32" href="favicon-32.png" />
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileColor" content="#000000" />
     <meta name="msapplication-TileImage" content="favicon-144.png" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" sizes="192x192" href="favicon-192.png" />
+    <script>
+      fetch("https://api.github.com/repos/catppuccin/telegram/issues/3").then(
+        async (res) => {
+          res.json().then((data) => {
+            if (data.state === "open") {
+              document.getElementById("status").innerHTML = "No.";
+              document.getElementById("helptext").style.display = "block";
+            } else {
+              document.getElementById("status").innerHTML = "Yes!";
+            }
+          });
+        }
+      );
+    </script>
   </head>
 
   <body>
@@ -88,10 +102,10 @@
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe>
-      <h1>No.</h1>
+      <h1 id="status">Checking...</h1>
     </div>
     <footer>
-      <p>
+      <p id="helptext" style="display: none">
         Help out by contributing
         <a href="https://github.com/catppuccin/telegram">here</a>.
       </p>
